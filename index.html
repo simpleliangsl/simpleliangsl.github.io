@@ -1,37 +1,56 @@
-<html>
+﻿<html>
   <head>
-    <style>
-      body {
-        color: #39464E;
-        font-family: sans-serif;
-        font-weight: bold;
-        font-size: 1.2em;
-      }
-
-      .item {
-        width: 300px;
-        margin: 25px auto;
-      }
-
-      a {
-        color: #39464E;
-      }
-
-      a:hover{
-        color: rgb(3,101,100);
-      }
-
-      .hidden {
-        color: #fff;
-      }
-    </style>
+    <link href="./common/default.css" rel="stylesheet"></link>
   </head>
   <body>
-    <div class="item">Welcome to Simple's Home</div>
-    <div class="item"><a href="#">Sharing</a></div>
-    <div class="item"><a href="#">IMagination</a></div>
-    <div class="item"><a href="#" class="hidden">Playing</a></div>
-    <div class="item"><a href="#">Learning</a></div>
-    <div class="item"><a href="#">EMotion</a></div>
+    <div class="block">Welcome to Simple's Home</div>
+    <ul class="block">
+      <li>Sharing
+        <ul>
+          <li><a href="#">简语</a></li>
+          <li><a href="#">Little Little Computer</a></li>
+        </ul>
+      </li>
+      <li>IMagination
+        <ul>
+          <li><a href="#">简单寓言</a></li>
+          <li><a href="#">简单寓言的寓言</a></li>
+        </ul>
+      </li>
+      <li>Playing
+        <ul>
+          <li><a href="#">Monty Hall problem</a></li>
+          <li><a href="#">Mine Weeper</a></li>
+          <li><a href="#">Simple Parablle</a></li>
+          <li><a href="#">Killer 7</a></li>
+        </ul>
+      </li>
+      <li>Learning
+        <ul>
+          <li><a href="#">Old News</a></li>
+          <li>Userful Link
+            <ul>
+              <li><a href="https://mitpress.mit.edu/sicp/">SICP</a></li>
+              <li><a href="https://www.python.org">Python</a></li>
+              <li><a href="https://leetcode.com">LeetCode</a></li>
+              <li><a href="https://jquery.com">jQuery</a></li>
+              <li><a href="https://jsfiddle.net">JSFiddle</a></li>
+              <li><a href="http://stackoverflow.com">StackOverflow</a></li>
+              <li><a href="http://www.w3school.com.cn">W3 School</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>EMotion
+        <ul>
+          <li><a href="./emotion/short-message.html">微言</a></li>
+          <li><a href="#">昏</a></li>
+          <li><a href="#">当我跑步时我会想些什么</a></li>
+          <li><a href="#">高速公路</a></li>
+          <li><a href="#">5年半人和事</a></li>
+        </ul>
+      </li>
+    </ul>
+    <script src="./common/li-collapse.js"></script>
   </body>
 </html>

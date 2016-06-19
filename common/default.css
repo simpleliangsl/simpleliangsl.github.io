@@ -1,0 +1,19 @@
+body {
+color: #39464E;
+font-family: sans-serif;
+font-weight: bold;
+font-size: 1.0em;
+}
+
+.block {
+width: 500px;
+margin: 25px auto;
+}
+
+a {
+color: #2b5b84;
+}
+
+a:hover{
+color: rgb(3,101,100);
+}
