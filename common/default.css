@@ -2,9 +2,10 @@
   color: #39464E;
   font-family: sans-serif;
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1.0em;
   margin: 25px auto;
   width: 600px;
+  line-height: 1.4;
 }
 
 .title {
@@ -21,4 +22,9 @@ a {
 
 a:hover{
   color: rgb(3,101,100);
+}
+
+.small-img-block{
+  display: block;
+  width: 100%;
 }
