@@ -3,6 +3,8 @@
   font-family: sans-serif;
   font-weight: bold;
   font-size: 1.1em;
+  margin: 25px auto;
+  width: 600px;
 }
 
 .title {
@@ -11,11 +13,6 @@
 
 .subtitle {
   font-size: 0.8em;
-}
-
-.block {
-  width: 600px;
-  margin: 25px auto;
 }
 
 a {
