@@ -1,4 +1,4 @@
-(function(){
+﻿(function(){
     var list = document.getElementsByTagName("li");
     for(i in list){
         list[i].onclick = function(event){
