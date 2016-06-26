@@ -1,9 +1,44 @@
 ﻿<html>
   <head>
     <link href="./common/default.css" rel="stylesheet"></link>
+    <style>
+      td {
+        text-align:center;
+        font-weight: bold;
+        width: 33%;
+      }     
+
+      .whitebox {
+        border: 1px solid grey;
+      }
+      
+      .bluebox {
+        border: 1px solid grey;
+        background: #f2f9fc;
+      }
+      
+      #playing {
+        border: 1px solid grey;
+        background: #39464E;
+        color: #dddddd;
+      }
+      
+      #imagination {
+        border: 1px solid grey;
+        background: #036564;
+        color:#dddddd;
+      }
+      
+      #emotion {
+        border: 1px solid grey;
+        background: #2b5b84;
+        color: #dddddd;
+      }
+    </style>
   </head>
   <body>
     <div class="title">Welcome to Simple's Home</div>
+    
     <ul class="title">
       <li><a href="./sharing/index.html">Sharing</a></li>
       <li><a href="./imagination/index.html">IMagination</a></li>
@@ -11,5 +46,13 @@
       <li><a href="./learing/index.html">Learning</a></li>
       <li><a href="./emotion/index.html">EMotion</a></li>
     </ul>
+    
+    <table style="width:100%; height:50%">
+      <tr><td class="whitebox"><a href="./sharing/index.html">Sharing</a></td><td></td><td></td></tr>
+      <tr><td></td><td class="bluebox"><a href="./playing/index.html">Playing</a></td><td></td></tr>
+      <tr><td class="bluebox"><a href="./imagination/index.html">Imagination</a></td><td></td><td></td></tr>
+      <tr><td></td><td class="whitebox"><a href="./learing/index.html">Learning</a></td><td></td></tr>
+      <tr><td></td><td></td><td class="bluebox"><a href="./emotion/index.html">EMotion</a></td></tr>
+    </table>
   </body>
 </html>
