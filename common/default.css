@@ -1,23 +1,26 @@
 ﻿body {
   color: #39464E;
   font-family: sans-serif;
+  margin: 2% auto;
+  padding: 2%;
+  width: 50%;
+  line-height: 1.5;
+  font-size: 14px;
   font-weight: bold;
-  font-size: 1.0em;
-  margin: 25px auto;
-  width: 600px;
-  line-height: 1.4;
+  border: solid 1px grey;
 }
 
 .title {
-  color: #2b5b84;
+  font-size: 1.2em;
 }
 
 .subtitle {
-  font-size: 0.8em;
+  font-size: 1em;
+  color: #2b5b84;
 }
 
 a {
-  color: #2b5b84;
+  color: #39464E;
 }
 
 a:hover{
