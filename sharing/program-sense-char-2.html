@@ -1,0 +1,161 @@
+﻿<html>
+  <head>
+    <link href="../common/default.css" rel="stylesheet"></link>
+  </head>
+  <body>
+    <div class="title">简语-第2章：抽象</div>
+    <div class="subtitle">Simple Liang, 2016-09-25</div>
+    
+    <p>抽象，是将数据与程序，以其语义来呈现外观，隐藏其实作细节，从而减少程序的复杂度。--维基百科</p>
+    
+    <p>简单地说，抽象，就是命名。<span class="subtitle">变量</span>，是有名字的值，零级抽象。<span class="subtitle">函数</span>，是有名字的运算过程，一级抽象。<span class="subtitle">类</span>，是有名字的数据模板，二级抽象。--Simple L</p>
+  
+    <p>
+      <img class="img-block" src="./image/program-sense-char-2-1.png"></img>
+    </p>
+    
+    <p>
+      <div class="subtitle">2.1 过程抽象：函数，lambda</div>
+      函数，是一段有名字的运算过程。通过名字可以一次定义，多次使用。<br>
+      函数包括四部分：名字(function name)，参数列表(parameter list)，返回值(return value)，实现体{statement sequence}。形式如
+      <img class="img-block" src="./image/program-sense-char-2-2.png"></img>
+    </p>
+    
+    <p>
+      以Fibonacci数列为例：费波那契数列由0和1开始，之后的数就由之前的两数相加。<br>
+      <img class="img-block" src="./image/program-sense-char-2-3.png"></img>
+    </p>
+    
+    <p>
+      <img class="img-block" src="./image/program-sense-char-2-4.png"></img>
+      以上是静态编程语言的书写风格，变量的数据类型必须声明，如n的类型是int， fibonacci的返回值类型是int。静态编程语言有C, C++, C#, Java。
+    </p>
+    
+    <p>
+      静态编程语言如楷书般严谨端庄，动态编程语言则如行书般简便灵动。动态编程语言的变量的数据类型由其值决定。动态编程语言有Python, Ruby, Lisp。
+    </p>
+    
+    <p>
+      Python如行书：<br>
+      <img class="img-block" src="./image/program-sense-char-2-5.png"></img>
+    </p>
+    
+    <p>
+      Lisp如草书 ： :D<br>
+      <img class="img-block" src="./image/program-sense-char-2-6.png"></img>
+    </p>
+    
+    <p>
+      lambda，是无名函数, 可以像值一样赋值于变量。如要可以定义函数sum(f, n)：f 从i=1到i=n求和。
+      <img class="img-block" src="./image/program-sense-char-2-7.png"></img>
+      当f = lambda(i)=>i 时，sum(f,n)是自然数求和, 如sum(f,3)为1+2+3 = 6.<br>
+      当f = lambda(i)=>i*i 时，sum(f,n)是平方和，如sum(f,3)为1+4+9 = 14.<br>
+      当f = lambda(i)=>i*i*i 时，sum(f,n)是立方和，如sum(f,3)为1+8+27=36<br>
+      这样sum作为一个广泛的概念，其实现可以独立于不同的f。<br>
+    </p>
+    
+    <p>
+      <span class="subtitle">算法复杂度：</span>一个算法性能的好坏取决于耗费的时间Time和空间Space。
+      <img class="img-block" src="./image/program-sense-char-2-8.png"></img>
+    </p>
+    
+    <p>
+      以fibonacci例，通过运行结果可知，运行一次fibonacci (n) 的具体时间 (不具有普遍意义)。随着n增大，时间T剧增，以致fibonacci (80) 已经无法返回结果。但原因是什么呢？
+    </p>
+  
+    <p>
+      其实算法的运行时间T是由其基本步骤的执行次数t确定的。 Fibonacci的t (n) = 1 + 1 + 1 + t (n-1) + t (n-2), t (0) =2, t (1) =3。假定常量可忽略，则t (n) = t (n-1) + t (n-2)。由树形图可知，根t (n) 是所有叶节点t(1) 或t(0)的和。如果假定树的叶节点是满的，则t(n)=2n（树的每一层都是上一层的2倍）。这是指数级增长，威力非常巨大，可以让单细胞在50次分裂后产生一个完整的人。至此，我们大概知道fibonacci递归算法的性能为什么很糟糕。
+      <img class="img-block" src="./image/program-sense-char-2-9.png"></img>
+    </p>
+    
+    <p>
+      其实t (n) = t (n-1) + t (n-2)是未满的树，所以比2n要小。可以求t (n)的通项公式，由此可知是O(1.618n)。这里我们引入了大O的概念，t (n) = O (1.618n) ，就是说1.618n是t (n) 渐近上限。
+    </p>
+    
+    <p>
+      <img class="img-block" src="./image/program-sense-char-2-10.png"></img>
+    </p>
+    
+    <p>
+      按照定义我们也可以说t(n) = O(2n)， 但O(1.618n)更准确。所以fibonacci递归算法的T(n) = O(1.618n)，指数级增长。
+    </p>
+    
+    <p>
+      与递归算法相比较，我们再看fibonacci的迭代算法：
+      <img class="img-block" src="./image/program-sense-char-2-11.png"></img>
+      <img class="img-block" src="./image/program-sense-char-2-12.png"></img>
+      通过运行结果可知，得到fibonacci (320) 这个天文数字不到1毫秒。通过算法分析可知T (n) = O (n) ，线性增长
+    </p>
+    
+    <p>
+      矩阵法求fibonacci(n)，T (n) = O (log2 n)，对数级增长。设对数x=log2 n，那么2x=n，也就是说x是1不断乘2直到等于n的次数。 例子从320到1折半多少次？设解为x, 那么(256=28) ≤ (320=2x) ≤ (512=29)，8≤x≤9, 所以x≈8。也就是说线性算法需要320次，对数算法只需8次。
+      <img class="img-block" src="./image/program-sense-char-2-13.png"></img>
+      <img class="img-block" src="./image/program-sense-char-2-14.png"></img>
+    </p>
+    
+    <p>
+      如果我们知道Fibonacci的通项公式，可以写出常数级T(n) = O(1)算法吗？因为公式里涉及到n次方运算，理论上应该是T (n) = O (log2 n) 。
+      <img class="img-block" src="./image/program-sense-char-2-15.png"></img>
+      <img class="img-block" src="./image/program-sense-char-2-16.png"></img>
+      <img class="img-block" src="./image/program-sense-char-2-17.png"></img>
+      可是运算时间似乎稳定在10-5秒范围内。难道真的是常量级吗？但finobacci(80)的值是错的，之后的值也是错的。因为Fn里有无理数和除法运算，会有精度问题。
+    </p>
+    
+    <p>
+      常用的算法复杂度从小到大如下
+      <table>
+        <tr class="subtitle"><td style="width:20%">名称</td><td style="width: 20%">时间T(n)</td><td>算法形状</td></tr>
+        <tr><td>常数阶</td><td>O(1)</td><td>直线从上到下，无循环，无递归<img src="./image/program-sense-char-2-18.png"></img></td></tr>
+        <tr><td>对数阶</td><td>O(log n)</td><td>线段不断被折半<img src="./image/program-sense-char-2-19.png"></img></td></tr>
+        <tr><td>线性阶</td><td>O(n)</td><td>圆形单循环<img src="./image/program-sense-char-2-20.png"></img></td></tr>
+        <tr><td>k次方阶</td><td>O(n^k)</td><td>多重圆嵌套循环<img src="./image/program-sense-char-2-21.png"></img></td></tr>
+        <tr><td>指数阶</td><td>O(2^n)</td><td>树形从根到叶<img src="./image/program-sense-char-2-22.png"></img></td></tr>
+      </table>
+    </p>
+    
+    <p>
+      <div class="subtitle">动态规划-Dynamic Programming</div>
+      回顾fibonacci的递归算法，简单明了，毫不费解，与文字定义如出一辙，可是性能远不及其他算法。如果它长“记性”，就能避免许多重复的计算，从而有质的飞跃。那么有记忆的递归算法的复杂度是多少呢？
+      <img class="img-block" src="./image/program-sense-char-2-23.png"></img>
+      <img class="img-block" src="./image/program-sense-char-2-24.png"></img>
+    </p>
+    
+    <p>
+      <div class="subtitle">2.2 数据抽象：面向对象</div>
+      建模有两种主要世界观：一种把世界看作事件流，被调用的函数用于模拟发生的事情，程序就是函数集；另一种把世界看作事物网，每个事物都有状态(state)和行为(behavior)，事物被称为对象(object)，一组被称为属性(attribute)的变量用于模拟状态，一组被称为方法(method) 的函数用于模拟行为，程序就是对象集。与对象相关的一个概念是类(class)，玫瑰与杯是不同的类，其表现行为不同。而红玫瑰与白玫瑰是不同的对象，其状态不同。
+    </p>
+    
+    <p>
+      类的定义形式如下：
+      <img class="img-block" src="./image/program-sense-char-2-25.png"></img>
+    </p>
+    
+    <p>
+      面向对象有三个重要概念：封装 (encapsulation)，继承 (inheritance)，多态 (polymorphism)。 封装就是把一组相关的属性和方法放在类里面，并以private和public设定它们的可访问范围。private表示只在类里面可访问，public表示随处可访问。继承则是为了获得已有类的功能，比如彩色杯ColorCup可以通过继承来重用杯子Cup的功能，如果Cup有protected的成员，则它们也是可以被ColorCup访问的。多态则是为了实现同一类的同一方法有不同的效果，比如容器Container，它声明但不直接实现pour方法，而其实现类杯子Cup和瓶子Bottle都各自实现了pour方法，则当我们把Cup和Bottle都当作Container看待时，Container的pour方法就有不同的效果。在纯面向对象的编程语言中，基本数据也是对象，如0是整数对象，’A’是字符对象。
+      <img class="img-block" src="./image/program-sense-char-2-26.png"></img>
+    </p>
+    
+    <p>
+      以杯为例（楷书）
+      <img class="img-block" src="./image/program-sense-char-2-27.png"></img>
+    </p>
+    
+    <p>
+      于是我们可以通过new来创建一个杯子：
+      <img class="img-block" src="./image/program-sense-char-2-28.png"></img>
+    </p>
+    
+    <p>
+      Python（行书）：
+      <img class="img-block" src="./image/program-sense-char-2-29.png"></img>
+      <img class="img-block" src="./image/program-sense-char-2-30.png"></img>
+    </p>
+    
+    <p>
+      Lisp（草书）：
+      <img class="img-block" src="./image/program-sense-char-2-31.png"></img>
+      <img class="img-block" src="./image/program-sense-char-2-32.png"></img>
+    </p>
+    
+  </body>
+</html>
